@@ -5,7 +5,7 @@
 # Общее количество символов (включая пробелы).
 # Выведите полученную статистику на экран.
 
-iskl = ['!', '.', ',', '-']
+iskl = ['!', '.', ',', '-', '—']
 
 with open('task1.txt', 'r', encoding='utf-8') as f:
     lines = f.readlines()
@@ -15,9 +15,11 @@ with open('task1.txt', 'r', encoding='utf-8') as f:
     #count_iskl_words = 0
 
     for line in lines:
-        words = line.split()
-        
+        line = ''.join(c for c in line if c not in iskl)
+        word = line.split()
+        count_words += len(word)
         count_simv += len(line)
+
     print(lines)
     print('колво строк:', count_lines)
     print('колво слов:', count_words)
