@@ -5,7 +5,7 @@
 # Его длина: длина
 #
 # Выведите это слово и длину в консоль.
-
+import re
 with open("task5.txt", "r", encoding="utf-8") as f:
     text = f.read()
 
@@ -14,7 +14,9 @@ words = text.split()
 longest_word = ""
 max_length = 0
 
+
 for word in words:
+    word = re.sub(r'[^\w\s]', '', word)
     word_length = len(word)
     if word_length > max_length:
         max_length = word_length

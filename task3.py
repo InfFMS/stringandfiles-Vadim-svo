@@ -7,10 +7,12 @@
 #
 # Убедитесь, что слова записаны в алфавитном порядке.
 from collections import Counter
+import re
 
 words = []
 with open('task3.txt', 'r', encoding='utf-8') as f:
     line = f.read()
+    line = re.sub(r'[.,]', '', str(line))
     linelow = line.lower()
     words = linelow.split()
 res = words.sort()
